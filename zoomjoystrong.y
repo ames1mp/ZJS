@@ -11,7 +11,7 @@
 
 void handle_point (int x, int y);
 void handle_line (int x1, int y1, int x2, int y2);
-void handle_circle(int x, int y, int r();
+void handle_circle(int x, int y, int r);
 void handle_rectangle( int x, int y, int w, int h);
 void handle_set_color( int r, int g, int b);
 
@@ -24,7 +24,7 @@ void handle_set_color( int r, int g, int b);
          float fVal;
        }
 
-%token <sym>END END_STATEMENT POINT LINE CIRCLE RECTANGLE SET_COLOR
+%token <sym> END END_STATEMENT POINT LINE CIRCLE RECTANGLE SET_COLOR
 %token <iVal> INT
 %token <fVal> FLOAT
 
@@ -46,7 +46,6 @@ statement_list: statement
               ;
           line: LINE INT INT INT INT END_STATEMENT {handle_line($2,$3,$4,$5);}
               ;
-              
         circle: CIRCLE INT INT INT   END_STATEMENT {handle_circle($2,$3,$4);}
               ;
      rectangle: RECTANGLE INT INT INT INT END_STATEMENT {handle_rectangle($2,$3,$4,$5);}
@@ -82,8 +81,7 @@ int yywrap()
 ***********************************************************************/
 void handle_point(int x, int y) {
 	if (x < 0 || x > WIDTH || y < 0 || y > HEIGHT) {
-		printf("Please enter Y coordinates in the range 0 - 768 
-    and X coordinates in the range 0 - 1024.\n");
+		printf("Please enter Y coordinates in the range 0 - 768 and X coordinates in the range 0 - 1024.\n");
 		return;
 	}
 	point(x, y);
@@ -118,7 +116,7 @@ void handle_line(int x1, int y1, int x2, int y2) {
  *@param y the y coordinate of the circle's center.
  *@param r the radius of the circle.
 ***********************************************************************/
-void handle_circle(int x, int y, int r() {
+void handle_circle(int x, int y, int r) {
   if (x < 0 || x > WIDTH) {
     printf("Please enter X coordinates in the range 0 - %d\n", HEIGHT);
 		return;
@@ -149,7 +147,7 @@ void handle_rectangle( int x, int y, int w, int h) {
 		printf("Please enter Y coordinates in the range 0 - %d\n", WIDTH);
 		return;
 	}
-  rectangle(x, y, w, h)
+  rectangle(x, y, w, h);
   return;
 }
 

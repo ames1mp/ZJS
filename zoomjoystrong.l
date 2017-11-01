@@ -17,21 +17,17 @@ int c;
 
 end       {
                 return END;
-                printf("END '%s'\n", yytext);
           }
 
 ;         {
-                printf("END_STATEMENT '%s'\n", yytext);
                 return(END_STATEMENT);
           }
 
 point     {
-                 printf("POINT '%s'\n", yytext);
                  return(POINT);
           }
 
 line      {
-                printf("LINE '%s'\n", yytext);
                 return(LINE);
           }
 
@@ -49,17 +45,13 @@ set_color {
 
 [0-9]+    {
                yylval.iVal = atoi(yytext);
-	            printf("INT '%s'\n", yytext);
                 return(INT);
           }
 
 [0-9]*\.[0-9]+ {
                yylval.fVal = atof(yytext);
-	            printf("FLOAT '%s'\n", yytext);
 	            return FLOAT;
                 }
-
-
 %%
 
 
