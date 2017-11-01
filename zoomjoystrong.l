@@ -1,11 +1,8 @@
 %{
-/*
- * Sample Lex/Flex file.
- * from a wonderful tutorial from
- * IBM's Knowledge Center
- * https://www.ibm.com/support/knowledgecenter/en/ssw_aix_61/com.ibm.aix.genprogc/ie_prog_4lex_yacc.htm
- *
- */
+/***********************************************************************
+ * @Author Mike Ames
+ * @Version Fall 2017
+***********************************************************************/
 
 #include <stdio.h>
 #include "zoomjoystrong.tab.h"
